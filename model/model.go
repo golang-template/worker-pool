@@ -21,10 +21,9 @@ type Worker struct {
 // Start processes tasks from the task queue.
 func (w Worker) Start() {
 	for task := range w.TaskQueue {
-		// Simulate work with time.Sleep
+
 		time.Sleep(500 * time.Millisecond)
 
-		// Simulate task completion or failure
 		if task.ID%2 == 0 {
 			w.ResultChan <- fmt.Sprintf("Worker %d successfully processed task %d: %s", w.ID, task.ID, task.Content)
 		} else {
